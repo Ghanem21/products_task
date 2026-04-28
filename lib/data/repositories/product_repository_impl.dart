@@ -27,16 +27,37 @@ class ProductRepositoryImpl implements ProductRepository {
 
   @override
   Future<int> addProduct(Product product) async {
-    return await localDataSource.addProduct(product);
+    try {
+      // Prefer server-created product so local DB keeps the same id as remote.
+      final created = await remoteDataSource.createProduct(product);
+      return await localDataSource.addProduct(created);
+    } catch (e) {
+      log("Remote create failed: $e. Saving locally only.");
+      return await localDataSource.addProduct(product);
+    }
   }
 
   @override
   Future<int> updateProduct(Product product) async {
-    return await localDataSource.updateProduct(product);
+    final localResult = await localDataSource.updateProduct(product);
+    if (product.id == null) return localResult;
+
+    try {
+      await remoteDataSource.updateProduct(product);
+    } catch (e) {
+      log("Remote update failed: $e. Kept local update.");
+    }
+    return localResult;
   }
 
   @override
   Future<int> deleteProduct(int id) async {
-    return await localDataSource.deleteProduct(id);
+    final localResult = await localDataSource.deleteProduct(id);
+    try {
+      await remoteDataSource.deleteProduct(id);
+    } catch (e) {
+      log("Remote delete failed: $e. Kept local delete.");
+    }
+    return localResult;
   }
 }

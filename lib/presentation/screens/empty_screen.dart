@@ -25,7 +25,7 @@ class EmptyScreen extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.all(30),
                         decoration: BoxDecoration(
-                          color: Colors.deepPurple.withOpacity(0.05),
+                          color: Colors.deepPurple.withValues(alpha: 0.05),
                           shape: BoxShape.circle,
                         ),
                         child: Stack(
@@ -34,7 +34,7 @@ class EmptyScreen extends StatelessWidget {
                             Icon(
                               Icons.inventory_2_outlined,
                               size: 80,
-                              color: Colors.deepPurple.withOpacity(0.4),
+                              color: Colors.deepPurple.withValues(alpha: 0.4),
                             ),
                             Positioned(
                               bottom: 0,
@@ -42,7 +42,7 @@ class EmptyScreen extends StatelessWidget {
                               child: Icon(
                                 Icons.star,
                                 size: 20,
-                                color: Colors.deepPurple.withOpacity(0.4),
+                                color: Colors.deepPurple.withValues(alpha: 0.4),
                               ),
                             ),
                             Positioned(
@@ -51,7 +51,7 @@ class EmptyScreen extends StatelessWidget {
                               child: Icon(
                                 Icons.star,
                                 size: 15,
-                                color: Colors.deepPurple.withOpacity(0.4),
+                                color: Colors.deepPurple.withValues(alpha: 0.4),
                               ),
                             ),
                           ],

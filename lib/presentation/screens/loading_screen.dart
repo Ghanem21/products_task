@@ -23,7 +23,7 @@ class LoadingScreen extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.all(30),
                         decoration: BoxDecoration(
-                          color: Colors.deepPurple.withOpacity(0.1),
+                          color: Colors.deepPurple.withValues(alpha: 0.1),
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(Icons.shopping_bag, size: 80, color: Colors.deepPurple),

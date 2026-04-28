@@ -117,8 +117,9 @@ Future<void> main(List<String> args) async {
     return;
   }
 
-  final server = await HttpServer.bind(InternetAddress.loopbackIPv4, port);
-  stdout.writeln('Products API running on http://localhost:$port');
+  // Bind to all interfaces so Android emulators and real devices can reach it.
+  final server = await HttpServer.bind(InternetAddress.anyIPv4, port);
+  stdout.writeln('Products API running on http://0.0.0.0:$port');
 
   await for (final req in server) {
     try {

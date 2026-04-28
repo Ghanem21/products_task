@@ -14,7 +14,7 @@ class DioClient {
     final envBaseUrl = const String.fromEnvironment('API_BASE_URL');
     final resolvedBaseUrl = envBaseUrl.isNotEmpty
         ? envBaseUrl
-        : (Platform.isAndroid ? 'http://10.0.2.2:3001' : 'http://localhost:3001');
+        : (Platform.isAndroid ? 'http://10.0.70.141:3001' : 'http://localhost:3001');
 
     dio = Dio(
       BaseOptions(

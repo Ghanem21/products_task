@@ -1,27 +1,19 @@
 {
-  "nextId": 4,
+  "nextId": 6,
   "products": [
     {
-      "id": 1,
-      "imageUrl": "https://picsum.photos/seed/keyboard/512/512",
-      "name": "Mechanical Keyboard",
-      "type": "Accessory",
-      "price": 79.99
+      "id": 4,
+      "imageUrl": "https://lh3.googleusercontent.com/a/ACg8ocI17D1FArdcU_76tyGctssVcbydKVxNki_b2uiVGZmgbAWTVKI-=s360-c-no",
+      "name": "emad",
+      "type": "person",
+      "price": 15000.0
     },
     {
-      "id": 2,
-      "imageUrl": "https://picsum.photos/seed/mouse/512/512",
-      "name": "Wireless Mouse",
-      "type": "Accessory",
-      "price": 24.5
-    },
-    {
-      "id": 3,
-      "imageUrl": "https://picsum.photos/seed/monitor/512/512",
-      "name": "27\" Monitor",
-      "type": "Hardware",
-      "price": 199.0
+      "id": 5,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsxpSPwAUWfWda18ibwIo0Skva8XHU681LM5lLs8Unf3sVCOfRhafherdq&s=10",
+      "name": "Slave",
+      "type": "Person",
+      "price": 450.0
     }
   ]
 }
-
