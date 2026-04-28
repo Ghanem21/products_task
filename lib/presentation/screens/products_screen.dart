@@ -12,7 +12,9 @@ class ProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AnimationCubit()..startFadeIn(duration: const Duration(milliseconds: 800)),
+      create: (context) =>
+          AnimationCubit()
+            ..startFadeIn(duration: const Duration(milliseconds: 800)),
       child: BlocBuilder<AnimationCubit, double>(
         builder: (context, animationValue) {
           return ListView.separated(
@@ -21,7 +23,10 @@ class ProductsScreen extends StatelessWidget {
               // Calculate interval manually since we aren't using AnimationController
               // Stagger the items but cap the start time so later items don't wait too long
               final double begin = (index * 0.1).clamp(0, 0.6);
-              final double t = ((animationValue - begin) / (1.0 - begin)).clamp(0.0, 1.0);
+              final double t = ((animationValue - begin) / (1.0 - begin)).clamp(
+                0.0,
+                1.0,
+              );
               final double curveValue = Curves.easeOutCubic.transform(t);
 
               return Opacity(

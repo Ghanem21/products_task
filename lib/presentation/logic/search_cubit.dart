@@ -28,7 +28,7 @@ class SearchCubit extends Cubit<SearchState> {
   void clearSearch() {
     emit(state.copyWith(query: ''));
   }
-  
+
   void closeSearch() {
     emit(state.copyWith(isSearching: false, query: ''));
   }

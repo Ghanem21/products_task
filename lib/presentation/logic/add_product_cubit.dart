@@ -43,14 +43,18 @@ class AddProductCubit extends Cubit<AddProductFormState> {
   AddProductCubit() : super(AddProductFormState());
 
   void updateName(String name) => emit(state.copyWith(name: name));
+
   void updateType(String type) => emit(state.copyWith(type: type));
+
   void updatePrice(String price) => emit(state.copyWith(price: price));
-  void updateImageUrl(String imageUrl) => emit(state.copyWith(imageUrl: imageUrl));
+
+  void updateImageUrl(String imageUrl) =>
+      emit(state.copyWith(imageUrl: imageUrl));
 
   Product toProduct() => Product(
-        name: state.name,
-        type: state.type,
-        price: double.tryParse(state.price) ?? 0.0,
-        imageUrl: state.imageUrl,
-      );
+    name: state.name,
+    type: state.type,
+    price: double.tryParse(state.price) ?? 0.0,
+    imageUrl: state.imageUrl,
+  );
 }

@@ -128,18 +128,19 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       AnimatedSwitcher(
                         duration: const Duration(milliseconds: 300),
-                        transitionBuilder: (Widget child, Animation<double> animation) {
-                          return FadeTransition(
-                            opacity: animation,
-                            child: SlideTransition(
-                              position: Tween<Offset>(
-                                begin: const Offset(0, 0.05),
-                                end: Offset.zero,
-                              ).animate(animation),
-                              child: child,
-                            ),
-                          );
-                        },
+                        transitionBuilder:
+                            (Widget child, Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: const Offset(0, 0.05),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: child,
+                                ),
+                              );
+                            },
                         child: _buildBody(state, productsBloc),
                       ),
                       if (state is ProductSuccessState && state.isRefreshing)
@@ -150,7 +151,9 @@ class HomeScreen extends StatelessWidget {
                           child: LinearProgressIndicator(
                             minHeight: 2,
                             backgroundColor: Colors.transparent,
-                            valueColor: AlwaysStoppedAnimation<Color>(Colors.deepPurple),
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              Colors.deepPurple,
+                            ),
                           ),
                         ),
                     ],
@@ -171,7 +174,8 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 16),
                 FloatingActionButton(
                   heroTag: 'add',
-                  onPressed: () => _showAddProductBottomSheet(context, productsBloc),
+                  onPressed: () =>
+                      _showAddProductBottomSheet(context, productsBloc),
                   child: const Icon(Icons.add),
                 ),
               ],

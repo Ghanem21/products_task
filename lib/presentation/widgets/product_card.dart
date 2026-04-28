@@ -48,9 +48,15 @@ class ProductCard extends StatelessWidget {
                 children: [
                   Text(
                     product.name,
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
-                  Text(product.type, style: const TextStyle(color: Colors.grey)),
+                  Text(
+                    product.type,
+                    style: const TextStyle(color: Colors.grey),
+                  ),
                   Text(
                     '\$${product.price}',
                     style: const TextStyle(
@@ -65,7 +71,9 @@ class ProductCard extends StatelessWidget {
               icon: const Icon(Icons.delete, color: Colors.red),
               onPressed: () {
                 if (product.id != null) {
-                  context.read<ProductsBloc>().add(DeleteProductEvent(product.id!));
+                  context.read<ProductsBloc>().add(
+                    DeleteProductEvent(product.id!),
+                  );
                 }
               },
             ),

@@ -8,9 +8,7 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   @override
   Future<List<Product>> getProducts() async {
     await Future.delayed(const Duration(seconds: 2));
-    
-    throw Exception("Failed to fetch products from remote server");
-    
 
+    throw Exception("Failed to fetch products from remote server");
   }
 }

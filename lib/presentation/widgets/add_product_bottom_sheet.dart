@@ -14,7 +14,7 @@ class AddProductBottomSheet extends StatelessWidget {
       child: BlocBuilder<AddProductCubit, AddProductFormState>(
         builder: (context, state) {
           final cubit = context.read<AddProductCubit>();
-          
+
           return Padding(
             padding: EdgeInsets.only(
               bottom: MediaQuery.of(context).viewInsets.bottom,
@@ -33,7 +33,9 @@ class AddProductBottomSheet extends StatelessWidget {
                   const SizedBox(height: 16),
                   TextField(
                     onChanged: cubit.updateName,
-                    decoration: const InputDecoration(labelText: 'Product Name'),
+                    decoration: const InputDecoration(
+                      labelText: 'Product Name',
+                    ),
                   ),
                   TextField(
                     onChanged: cubit.updateType,
@@ -50,12 +52,14 @@ class AddProductBottomSheet extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   ElevatedButton(
-                    onPressed: state.isValid 
-                      ? () {
-                          context.read<ProductsBloc>().add(AddProductEvent(cubit.toProduct()));
-                          Navigator.pop(context);
-                        }
-                      : null,
+                    onPressed: state.isValid
+                        ? () {
+                            context.read<ProductsBloc>().add(
+                              AddProductEvent(cubit.toProduct()),
+                            );
+                            Navigator.pop(context);
+                          }
+                        : null,
                     child: const Text('Add Product'),
                   ),
                   const SizedBox(height: 16),

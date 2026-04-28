@@ -9,7 +9,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
   List<Product> _allProducts = [];
 
   ProductsBloc({required this.repository, required ProductsState initialState})
-      : super(initialState) {
+    : super(initialState) {
     on<GetProductsEvent>((event, emit) async {
       await _loadProducts(emit, showLoading: true);
     });
@@ -30,9 +30,9 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
         final updatedProducts = currentState.products
             .where((p) => p.id != event.id)
             .toList();
-        
+
         _allProducts = _allProducts.where((p) => p.id != event.id).toList();
-        
+
         emit(ProductSuccessState(updatedProducts, isRefreshing: true));
       }
 
@@ -57,7 +57,10 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
     });
   }
 
-  Future<void> _loadProducts(Emitter<ProductsState> emit, {required bool showLoading}) async {
+  Future<void> _loadProducts(
+    Emitter<ProductsState> emit, {
+    required bool showLoading,
+  }) async {
     if (showLoading) {
       emit(ProductLoadingState());
     } else if (state is ProductSuccessState) {
