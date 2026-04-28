@@ -23,13 +23,13 @@ class Product {
     };
   }
 
-  factory Product.fromMap(Map<String, dynamic> map) {
+  factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-      id: map['id'],
-      imageUrl: map['imageUrl'],
-      name: map['name'],
-      type: map['type'],
-      price: map['price'],
+      id: json['id'],
+      imageUrl: json['imageUrl'],
+      name: json['name'],
+      type: json['type'],
+      price: json['price'],
     );
   }
 
@@ -47,5 +47,15 @@ class Product {
       type: type ?? this.type,
       price: price ?? this.price,
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'imageUrl': imageUrl,
+      'name': name,
+      'type': type,
+      'price': price,
+    };
   }
 }

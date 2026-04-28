@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: products-task-api
+    env: docker
+    dockerContext: ./server
+    dockerfilePath: ./server/Dockerfile
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /health
+

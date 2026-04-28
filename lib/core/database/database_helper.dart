@@ -45,7 +45,7 @@ CREATE TABLE products (
   Future<List<Product>> readAllProducts() async {
     final db = await instance.database;
     final result = await db.query('products');
-    return result.map((json) => Product.fromMap(json)).toList();
+    return result.map((json) => Product.fromJson(json)).toList();
   }
 
   Future<int> update(Product product) async {

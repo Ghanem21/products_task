@@ -11,20 +11,18 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:products_task/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('App boots to products home', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    // The home screen triggers a remote fetch via Dio. In widget tests we let
+    // the request time out so the repository falls back to local storage and
+    // the test framework has no pending timers.
     await tester.pump();
+    await tester.pump(const Duration(seconds: 16));
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Basic smoke assertions for this app (not the default counter template).
+    expect(find.text('Products'), findsOneWidget);
+    expect(find.byType(Scaffold), findsWidgets);
   });
 }

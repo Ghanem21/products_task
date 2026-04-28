@@ -1,0 +1,27 @@
+{
+  "nextId": 4,
+  "products": [
+    {
+      "id": 1,
+      "imageUrl": "https://picsum.photos/seed/keyboard/512/512",
+      "name": "Mechanical Keyboard",
+      "type": "Accessory",
+      "price": 79.99
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://picsum.photos/seed/mouse/512/512",
+      "name": "Wireless Mouse",
+      "type": "Accessory",
+      "price": 24.5
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://picsum.photos/seed/monitor/512/512",
+      "name": "27\" Monitor",
+      "type": "Hardware",
+      "price": 199.0
+    }
+  ]
+}
+

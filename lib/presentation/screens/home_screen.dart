@@ -13,6 +13,7 @@ import '../../core/database/database_helper.dart';
 import '../../data/datasources/product_local_data_source.dart';
 import '../../data/datasources/product_remote_data_source.dart';
 import '../../data/repositories/product_repository_impl.dart';
+import '../../core/Remote/dio_client.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -40,7 +41,7 @@ class HomeScreen extends StatelessWidget {
               localDataSource: ProductLocalDataSourceImpl(
                 dbHelper: DatabaseHelper.instance,
               ),
-              remoteDataSource: ProductRemoteDataSourceImpl(),
+              remoteDataSource: ProductRemoteDataSourceImpl(DioClient().dio),
             ),
             initialState: ProductLoadingState(),
           )..add(GetProductsEvent()),
